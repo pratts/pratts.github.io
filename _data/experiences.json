@@ -47,92 +47,83 @@
         "company": "Yolobus Traveltech Pvt Ltd",
         "position": "Senior Software Developer",
         "duration": "March 2020 - March 2021",
-        "description": "Building calculation logics for carbon accounting and product carbon footprint for companies in Steel, Chemicals, Manufacturing, Oil and Gas sectors",
+        "description": "Building a B2C travel platform for bus ticketing",
         "highlights": [
-            "Worked on a calculator to compute a product's carbon footprint",
-            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
-            "Contributed to a feature to visualize a facility's production line",
-            "Worked on a calculator to compute a facility's carbon footprint for a month",
-            "Contributed to the design of multi-tenant database for the B2B SaaS product",
-            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
-            "Contributed to the data ingestion pipeline via excel and S3"
+            "Contributed to database architecture of in-house GDS trips and bookings system",
+            "Contributed to the development of in-house GDS system using Python Django",
+            "Contributed to the initial version of the ticket booking system using AWS Chalice framework"
         ],
         "skills": [
-            "NestJS",
+            "AWS Chalice",
+            "Python",
             "PostgreSQL",
-            "Typescript",
-            "MongoDB",
+            "Python Django",
             "AWS",
-            "NATS"
+            "MongoDB",
+            "Redis"
         ]
     },
     {
         "company": "Delta Corp Ltd.",
         "position": "Senior Software Engineer",
         "duration": "October 2016 - February 2020",
-        "description": "",
+        "description": "Building solutions for game's load testing, recovery and code migration",
         "highlights": [
-            "Worked on a calculator to compute a product's carbon footprint",
-            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
-            "Contributed to a feature to visualize a facility's production line",
-            "Worked on a calculator to compute a facility's carbon footprint for a month",
-            "Contributed to the design of multi-tenant database for the B2B SaaS product",
-            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
-            "Contributed to the data ingestion pipeline via excel and S3"
+            "Implemented disaster recovery feature to restore game state in case of an outage",
+            "Implemented a poker game stress testing tool to generate load of 10000+ users",
+            "Contributed to the migration of poker game from PHP to Node.js",
+            "Contributed to the segmentation of users for marketing campaigns",
+            "Contributed to the development of adda52live.com website using Angular2",
+            "Contributed to the development of adda52live.com admin panel"
         ],
         "skills": [
-            "NestJS",
-            "PostgreSQL",
-            "Typescript",
+            "Java",
+            "Nodejs",
+            "ExpressJS",
             "MongoDB",
+            "Mariadb",
+            "Angular2",
             "AWS",
-            "NATS"
+            "RabbitMQ",
+            "PHP"
         ]
     },
     {
         "company": "Delta Corp Ltd.",
         "position": "Software Engineer",
         "duration": "October 2015 - October 2016",
-        "description": "Building calculation logics for carbon accounting and product carbon footprint for companies in Steel, Chemicals, Manufacturing, Oil and Gas sectors",
+        "description": "Building logics for online poker",
         "highlights": [
-            "Worked on a calculator to compute a product's carbon footprint",
-            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
-            "Contributed to a feature to visualize a facility's production line",
-            "Worked on a calculator to compute a facility's carbon footprint for a month",
-            "Contributed to the design of multi-tenant database for the B2B SaaS product",
-            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
-            "Contributed to the data ingestion pipeline via excel and S3"
+            "Contributed to the development of adda52live.com website using Angular2",
+            "Contributed to the development of adda52live.com admin panel",
+            "Implemented OFC poker variant"
         ],
         "skills": [
-            "NestJS",
-            "PostgreSQL",
-            "Typescript",
-            "MongoDB",
+            "Java",
+            "Nodejs",
+            "ExpressJS",
+            "Mariadb",
             "AWS",
-            "NATS"
+            "RabbitMQ"
         ]
     },
     {
         "company": "Delta Corp Ltd.",
         "position": "Graduate Engineer Trainee",
         "duration": "September 2014 - October 2015",
-        "description": "",
+        "description": "Building a CI/CD pipeline for game server deployment + logic for poker game",
         "highlights": [
-            "Worked on a calculator to compute a product's carbon footprint",
-            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
-            "Contributed to a feature to visualize a facility's production line",
-            "Worked on a calculator to compute a facility's carbon footprint for a month",
-            "Contributed to the design of multi-tenant database for the B2B SaaS product",
-            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
-            "Contributed to the data ingestion pipeline via excel and S3"
+            "Implemented a CI/CD pipeline for poker game using Jenkins and Gradle",
+            "Contributed to the development of poker game using Java and Node.js"
         ],
         "skills": [
-            "NestJS",
-            "PostgreSQL",
-            "Typescript",
+            "Java",
+            "Mariadb",
+            "Nodejs",
             "MongoDB",
-            "AWS",
-            "NATS"
+            "RabbitMQ",
+            "Jenkins",
+            "Gradle"
         ]
     }
 ]
