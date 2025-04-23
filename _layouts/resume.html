@@ -6,6 +6,23 @@ layout: default
   <header class="resume-header">
     <h1>{{ site.title }}</h1>
     <p class="subtitle">{{ site.description }}</p>
+    <div class="social-links">
+      {% if site.github_username %}
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" class="social-link">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      {% endif %}
+      {% if site.linkedin_username %}
+      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="social-link">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      {% endif %}
+      {% if site.email %}
+      <a href="mailto:{{ site.email }}" class="social-link">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+      {% endif %}
+    </div>
   </header>
 
   <section class="resume-section">
@@ -42,7 +59,9 @@ layout: default
             <span class="tech-tag">{{ tech }}</span>
             {% endfor %}
           </div>
-          <a href="{{ project.github_url }}" class="github-link" target="_blank">View on GitHub</a>
+          <a href="{{ project.github_url }}" class="github-link" target="_blank">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
         </div>
         {% endif %}
       {% endfor %}
@@ -136,4 +155,12 @@ layout: default
 .github-link:hover {
   text-decoration: underline;
 }
-</style> 
+
+/* Hide the footer */
+.site-footer {
+  display: none;
+}
+</style>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
