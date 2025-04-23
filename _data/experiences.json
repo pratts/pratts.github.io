@@ -1,0 +1,138 @@
+[
+    {
+        "company": "Emission Critical Pvt. Ltd.",
+        "position": "Lead Software Developer",
+        "duration": "May 2022 - March 2025",
+        "description": "Building calculation logics for carbon accounting and product carbon footprint for companies in Steel, Chemicals, Manufacturing, Oil and Gas sectors",
+        "highlights": [
+            "Worked on a calculator to compute a product's carbon footprint",
+            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
+            "Contributed to a feature to visualize a facility's production line",
+            "Worked on a calculator to compute a facility's carbon footprint for a month",
+            "Contributed to the design of multi-tenant database for the B2B SaaS product",
+            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
+            "Contributed to the data ingestion pipeline via excel and S3"
+        ],
+        "skills": [
+            "NestJS",
+            "PostgreSQL",
+            "Typescript",
+            "MongoDB",
+            "AWS",
+            "NATS"
+        ]
+    },
+    {
+        "company": "Mind Sports League",
+        "position": "Lead Software Developer",
+        "duration": "March 2021 - May 2022",
+        "description": "Managing game and tournament logics for online poker",
+        "highlights": [
+            "Developed features like hand-for-hand, re-entry to improve online poker tournament experiences",
+            "Developed a poker simulator that was integrated with poker learning courses"
+        ],
+        "skills": [
+            "Nodejs",
+            "PostgreSQL",
+            "Typescript",
+            "MongoDB",
+            "ExpressJS",
+            "Redis",
+            "Socket.io",
+            "AWS",
+            "RabbitMQ"
+        ]
+    },
+    {
+        "company": "Yolobus Traveltech Pvt Ltd",
+        "position": "Senior Software Developer",
+        "duration": "March 2020 - March 2021",
+        "description": "Building calculation logics for carbon accounting and product carbon footprint for companies in Steel, Chemicals, Manufacturing, Oil and Gas sectors",
+        "highlights": [
+            "Worked on a calculator to compute a product's carbon footprint",
+            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
+            "Contributed to a feature to visualize a facility's production line",
+            "Worked on a calculator to compute a facility's carbon footprint for a month",
+            "Contributed to the design of multi-tenant database for the B2B SaaS product",
+            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
+            "Contributed to the data ingestion pipeline via excel and S3"
+        ],
+        "skills": [
+            "NestJS",
+            "PostgreSQL",
+            "Typescript",
+            "MongoDB",
+            "AWS",
+            "NATS"
+        ]
+    },
+    {
+        "company": "Delta Corp Ltd.",
+        "position": "Senior Software Engineer",
+        "duration": "October 2016 - February 2020",
+        "description": "",
+        "highlights": [
+            "Worked on a calculator to compute a product's carbon footprint",
+            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
+            "Contributed to a feature to visualize a facility's production line",
+            "Worked on a calculator to compute a facility's carbon footprint for a month",
+            "Contributed to the design of multi-tenant database for the B2B SaaS product",
+            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
+            "Contributed to the data ingestion pipeline via excel and S3"
+        ],
+        "skills": [
+            "NestJS",
+            "PostgreSQL",
+            "Typescript",
+            "MongoDB",
+            "AWS",
+            "NATS"
+        ]
+    },
+    {
+        "company": "Delta Corp Ltd.",
+        "position": "Software Engineer",
+        "duration": "October 2015 - October 2016",
+        "description": "Building calculation logics for carbon accounting and product carbon footprint for companies in Steel, Chemicals, Manufacturing, Oil and Gas sectors",
+        "highlights": [
+            "Worked on a calculator to compute a product's carbon footprint",
+            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
+            "Contributed to a feature to visualize a facility's production line",
+            "Worked on a calculator to compute a facility's carbon footprint for a month",
+            "Contributed to the design of multi-tenant database for the B2B SaaS product",
+            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
+            "Contributed to the data ingestion pipeline via excel and S3"
+        ],
+        "skills": [
+            "NestJS",
+            "PostgreSQL",
+            "Typescript",
+            "MongoDB",
+            "AWS",
+            "NATS"
+        ]
+    },
+    {
+        "company": "Delta Corp Ltd.",
+        "position": "Graduate Engineer Trainee",
+        "duration": "September 2014 - October 2015",
+        "description": "",
+        "highlights": [
+            "Worked on a calculator to compute a product's carbon footprint",
+            "Optimized queries to reduce the computation time for product carbon footprint by 50% and 30% for Carbon Accounting",
+            "Contributed to a feature to visualize a facility's production line",
+            "Worked on a calculator to compute a facility's carbon footprint for a month",
+            "Contributed to the design of multi-tenant database for the B2B SaaS product",
+            "Contributed to storage and searching of various emission factor databases to be used to compute carbon emissions",
+            "Contributed to the data ingestion pipeline via excel and S3"
+        ],
+        "skills": [
+            "NestJS",
+            "PostgreSQL",
+            "Typescript",
+            "MongoDB",
+            "AWS",
+            "NATS"
+        ]
+    }
+]
