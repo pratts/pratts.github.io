@@ -1,1 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Prateek Sharma</title><link>/</link><description>Recent content in Home on Prateek Sharma</description><generator>Hugo</generator><language>en-us</language><lastBuildDate/><atom:link href="/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Prateek Sharma</title><link>/</link><description>Recent content in Home on Prateek Sharma</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 09 Jun 2025 18:53:16 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Experiences</title><link>/experiences/</link><pubDate>Mon, 09 Jun 2025 18:53:16 +0530</pubDate><guid>/experiences/</guid><description>&lt;h3 class="heading" id="here-is-the-brief-summary-of-my-resume">
+ Here is the brief summary of my resume
+ &lt;a class="anchor" href="#here-is-the-brief-summary-of-my-resume">#&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>Lead Software Developer at Emission Critical Pvt. Ltd. (May 2022-March 2025)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Led backend development for a multi-tenant B2B SaaS platform enabling enterprise carbon footprint and sustainability tracking.&lt;/li>
+&lt;li>Developed and optimized carbon calculation algorithms and database queries, reducing computation time by up to 50%.&lt;/li>
+&lt;li>Built APIs and data pipelines for emission data ingestion, Scope 1/2/3 accounting, and supply chain tracking.&lt;/li>
+&lt;li>Integrated secure authentication, full-text search, and scalable architecture for emission factor management.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Tech Lead at Mind Sports League (March 2021-May 2022)&lt;/strong>&lt;/p></description></item><item><title>About Me</title><link>/about/</link><pubDate>Mon, 09 Jun 2025 17:12:52 +0530</pubDate><guid>/about/</guid><description>&lt;h2 class="heading" id="hello-im-prateek-sharma">
+ Hello, I&amp;rsquo;m Prateek Sharma!
+ &lt;a class="anchor" href="#hello-im-prateek-sharma">#&lt;/a>
+&lt;/h2>
+&lt;p>I am a curious and passionate individual with an interest in backend development. I like exploring new technologies and learning new skills.&lt;/p>
+&lt;p>I started my journy in September 2014 with an online gaming company named &amp;ldquo;Adda52&amp;rdquo; as a trainee. Since then, I have worked in startups in Transport, B2B SaaS industries with team sizes ranging from 4-40+. I learnt new languages and technologies like Java, Python, Node.js, Postgres, MongoDB, Redis, and more. I have also worked with AWS, Docker and Kubernetes to deploy and manage applications in production environments.&lt;/p></description></item></channel></rss>
