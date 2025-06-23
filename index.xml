@@ -1,17 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Prateek Sharma</title><link>/</link><description>Recent content in Home on Prateek Sharma</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 09 Jun 2025 18:53:16 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Experiences</title><link>/experiences/</link><pubDate>Mon, 09 Jun 2025 18:53:16 +0530</pubDate><guid>/experiences/</guid><description>&lt;h3 class="heading" id="here-is-the-brief-summary-of-my-resume">
- Here is the brief summary of my resume
- &lt;a class="anchor" href="#here-is-the-brief-summary-of-my-resume">#&lt;/a>
-&lt;/h3>
-&lt;p>&lt;strong>Lead Software Developer at Emission Critical Pvt. Ltd. (May 2022-March 2025)&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>Led backend development for a multi-tenant B2B SaaS platform enabling enterprise carbon footprint and sustainability tracking.&lt;/li>
-&lt;li>Developed and optimized carbon calculation algorithms and database queries, reducing computation time by up to 50%.&lt;/li>
-&lt;li>Built APIs and data pipelines for emission data ingestion, Scope 1/2/3 accounting, and supply chain tracking.&lt;/li>
-&lt;li>Integrated secure authentication, full-text search, and scalable architecture for emission factor management.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>Tech Lead at Mind Sports League (March 2021-May 2022)&lt;/strong>&lt;/p></description></item><item><title>About Me</title><link>/about/</link><pubDate>Mon, 09 Jun 2025 17:12:52 +0530</pubDate><guid>/about/</guid><description>&lt;h2 class="heading" id="hello-im-prateek-sharma">
- Hello, I&amp;rsquo;m Prateek Sharma!
- &lt;a class="anchor" href="#hello-im-prateek-sharma">#&lt;/a>
-&lt;/h2>
-&lt;p>I am a curious and passionate individual with an interest in backend development. I like exploring new technologies and learning new skills.&lt;/p>
-&lt;p>I started my journy in September 2014 with an online gaming company named &amp;ldquo;Adda52&amp;rdquo; as a trainee. Since then, I have worked in startups in Transport, B2B SaaS industries with team sizes ranging from 4-40+. I learnt new languages and technologies like Java, Python, Node.js, Postgres, MongoDB, Redis, and more. I have also worked with AWS, Docker and Kubernetes to deploy and manage applications in production environments.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prateek Sharma</title>
+    <link>/</link>
+    <description>Recent content on Prateek Sharma</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jun 2025 11:14:19 +0530</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video Translator</title>
+      <link>/projects/video-translator/</link>
+      <pubDate>Mon, 23 Jun 2025 11:14:19 +0530</pubDate>
+      <guid>/projects/video-translator/</guid>
+      <description>&lt;p&gt;I always wished to see the Japanese anime in english. But the audio was not available in English. I had to rely on subtitles. It was the same experience while watching other foreign language movies. Constantly watching the movie and subtitles was too much hassle.&lt;/p&gt;&#xA;&lt;p&gt;During my break recently, I thought of exploring the possibility of translating the videos to English. With the advancement in AI and open source libraries, I decided to build a basic tool/script to achieve the same. I wanted the script to do the following:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Experiences</title>
+      <link>/experiences/</link>
+      <pubDate>Mon, 09 Jun 2025 18:53:16 +0530</pubDate>
+      <guid>/experiences/</guid>
+      <description>&lt;h3 class=&#34;heading&#34; id=&#34;here-is-the-brief-summary-of-my-resume&#34;&gt;&#xA;  Here is the brief summary of my resume&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#here-is-the-brief-summary-of-my-resume&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Lead Software Developer at Emission Critical Pvt. Ltd. (May 2022-March 2025)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Led backend development for a multi-tenant B2B SaaS platform enabling enterprise carbon footprint and sustainability tracking.&lt;/li&gt;&#xA;&lt;li&gt;Developed and optimized carbon calculation algorithms and database queries, reducing computation time by up to 50%.&lt;/li&gt;&#xA;&lt;li&gt;Built APIs and data pipelines for emission data ingestion, Scope 1/2/3 accounting, and supply chain tracking.&lt;/li&gt;&#xA;&lt;li&gt;Integrated secure authentication, full-text search, and scalable architecture for emission factor management.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tech Lead at Mind Sports League (March 2021-May 2022)&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>/about/</link>
+      <pubDate>Mon, 09 Jun 2025 17:12:52 +0530</pubDate>
+      <guid>/about/</guid>
+      <description>&lt;h2 class=&#34;heading&#34; id=&#34;hello-im-prateek-sharma&#34;&gt;&#xA;  Hello, I&amp;rsquo;m Prateek Sharma!&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#hello-im-prateek-sharma&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;I am a curious and passionate individual with an interest in backend development. I like exploring new technologies and learning new skills.&lt;/p&gt;&#xA;&lt;p&gt;I started my journy in September 2014 with an online gaming company named &amp;ldquo;Adda52&amp;rdquo; as a trainee. Since then, I have worked in startups in Transport, B2B SaaS industries with team sizes ranging from 4-40+. I learnt new languages and technologies like Java, Python, Node.js, Postgres, MongoDB, Redis, and more. I have also worked with AWS, Docker and Kubernetes to deploy and manage applications in production environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

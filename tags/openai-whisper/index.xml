@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenAI-Whisper on Prateek Sharma</title>
+    <link>/tags/openai-whisper/</link>
+    <description>Recent content in OpenAI-Whisper on Prateek Sharma</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jun 2025 11:14:19 +0530</lastBuildDate>
+    <atom:link href="/tags/openai-whisper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video Translator</title>
+      <link>/projects/video-translator/</link>
+      <pubDate>Mon, 23 Jun 2025 11:14:19 +0530</pubDate>
+      <guid>/projects/video-translator/</guid>
+      <description>&lt;p&gt;I always wished to see the Japanese anime in english. But the audio was not available in English. I had to rely on subtitles. It was the same experience while watching other foreign language movies. Constantly watching the movie and subtitles was too much hassle.&lt;/p&gt;&#xA;&lt;p&gt;During my break recently, I thought of exploring the possibility of translating the videos to English. With the advancement in AI and open source libraries, I decided to build a basic tool/script to achieve the same. I wanted the script to do the following:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

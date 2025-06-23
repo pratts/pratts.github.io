@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenVoice on Prateek Sharma</title>
+    <link>//localhost:1313/tags/openvoice/</link>
+    <description>Recent content in OpenVoice on Prateek Sharma</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jun 2025 11:14:19 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/openvoice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Audio Cloning</title>
+      <link>//localhost:1313/projects/audio-cloning/</link>
+      <pubDate>Mon, 23 Jun 2025 11:14:19 +0530</pubDate>
+      <guid>//localhost:1313/projects/audio-cloning/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
