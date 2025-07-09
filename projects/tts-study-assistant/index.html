@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<link rel="icon" type="image/ico" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<meta name="description" content="A deep dive into the technical design and implementation of a TTS Study Assistant Chrome extension and its Go backend."/>
+
+
+
+<title>
+    
+    Study Assistant: Chrome Extension | Prateek Sharma
+    
+</title>
+
+<link rel="canonical" href="/projects/tts-study-assistant/"/>
+
+<meta property="og:url" content="/projects/tts-study-assistant/">
+  <meta property="og:site_name" content="Prateek Sharma">
+  <meta property="og:title" content="Study Assistant: Chrome Extension">
+  <meta property="og:description" content="A deep dive into the technical design and implementation of a TTS Study Assistant Chrome extension and its Go backend.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-07-09T17:31:45+05:30">
+    <meta property="article:modified_time" content="2025-07-09T17:31:45+05:30">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.92c3bf7119b98cfdc79e93f36a451eb901d8bbbfed7d75814e6436cf6c9085dc.css" media="all">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">
+        <a href="/">Prateek Sharma</a>
+    </h1>
+
+    <div class="header-menu">
+        
+
+        
+        
+
+        <p
+            class="small ">
+            <a href="/" >
+                /home
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/experiences" >
+                /experiences
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/posts" >
+                /posts
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="https://drive.google.com/file/d/11VADCUZrHJzU2U8J5Y5lJmXiOUVLUhDG/view?usp=sharing" >
+                /resume
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+
+<div class="breadcrumbs"><a href="/">~</a><span class="breadcrumbs-separator">/</span><a href="/projects/">Projects</a><span class="breadcrumbs-separator">/</span>
+        <a href="/projects/tts-study-assistant/">Study Assistant: Chrome Extension</a></div>
+
+
+<div >
+  <article>
+    <header class="single-intro-container">
+        
+        <h1 class="single-title">Study Assistant: Chrome Extension</h1>
+        
+        <div class="single-subsummary">
+          
+          <div>
+            
+            <p class="single-date">
+              <time datetime="2025-07-09T17:31:45&#43;05:30">July 9, 2025</time>
+            </p>
+          </div>
+        </div>
+        
+    </header>
+    
+    <div class="single-content">
+      <h2 class="heading" id="introduction">
+  Introduction
+  <a class="anchor" href="#introduction">#</a>
+</h2>
+<p>In this post, I’ll walk through the technical details of building a Study Assistant—a productivity tool that lets users save, organize, and listen to notes from any website. The solution consists of a Chrome extension (frontend) and a Go/Fiber backend, with secure authentication, domain-based note management, and text-to-speech (TTS) features.</p>
+<hr>
+<h2 class="heading" id="1-chrome-extension-technical-details">
+  1. Chrome Extension: Technical Details
+  <a class="anchor" href="#1-chrome-extension-technical-details">#</a>
+</h2>
+<h3 class="heading" id="architecture">
+  Architecture
+  <a class="anchor" href="#architecture">#</a>
+</h3>
+<ul>
+<li><strong>Popup UI:</strong> Built with vanilla JS, HTML, and CSS for fast load and compatibility.</li>
+<li><strong>Content Scripts:</strong> Injected into web pages to capture selected text and interact with the context menu.</li>
+<li><strong>Background Script:</strong> Handles authentication, API calls, and communication between popup, content scripts, and backend.</li>
+<li><strong>Context Menus:</strong> Adds a right-click menu for saving selected text as a note.</li>
+<li><strong>TTS Integration:</strong> Uses the Web Speech API (<code>window.speechSynthesis</code>) for in-browser audio playback.</li>
+</ul>
+<h3 class="heading" id="key-features">
+  Key Features
+  <a class="anchor" href="#key-features">#</a>
+</h3>
+<ul>
+<li><strong>Save Notes:</strong> Select text on any page, right-click, and save it as a note (with source URL and domain auto-detected).</li>
+<li><strong>Listen to Notes:</strong> Play, pause, and replay notes using TTS directly from the popup.</li>
+<li><strong>Domain Awareness:</strong> Notes are grouped and filtered by domain, including special handling for local files and PDFs.</li>
+<li><strong>Authentication:</strong> Secure login with JWT/refresh tokens, passwords are pre-hashed (SHA-256) before sending to the backend.</li>
+<li><strong>Sync:</strong> Notes are synced with the backend, so users can access them from the web dashboard as well.</li>
+</ul>
+<h3 class="heading" id="permissions--security">
+  Permissions &amp; Security
+  <a class="anchor" href="#permissions--security">#</a>
+</h3>
+<ul>
+<li><strong>Permissions:</strong> <code>activeTab</code>, <code>contextMenus</code>, <code>storage</code>, <code>tts</code>, and host permissions for all URLs.</li>
+<li><strong>Privacy:</strong> No user data is sold or shared; only email, hashed password, and selected note content are sent to the backend.</li>
+<li><strong>Edge Cases:</strong> Handles Chrome PDF viewer and local files by mapping their domains to a generic label (&ldquo;Downloaded/Local file&rdquo;).</li>
+</ul>
+<h3 class="heading" id="example-context-menu-handler">
+  Example: Context Menu Handler
+  <a class="anchor" href="#example-context-menu-handler">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>chrome.contextMenus.create({
+</span></span><span style="display:flex;"><span>  id: <span style="color:#666;font-style:italic">&#34;save-note&#34;</span>,
+</span></span><span style="display:flex;"><span>  title: <span style="color:#666;font-style:italic">&#34;Save Note&#34;</span>,
+</span></span><span style="display:flex;"><span>  contexts: [<span style="color:#666;font-style:italic">&#34;selection&#34;</span>],
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chrome.contextMenus.onClicked.addListener(<span style="font-weight:bold;text-decoration:underline">async</span> (info, tab) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">if</span> (info.menuItemId === <span style="color:#666;font-style:italic">&#34;save-note&#34;</span> &amp;&amp; info.selectionText) {
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// Send selected text to backend
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>    <span style="font-weight:bold;text-decoration:underline">await</span> apiClient.saveNote({
+</span></span><span style="display:flex;"><span>      content: info.selectionText,
+</span></span><span style="display:flex;"><span>      source_url: tab.url,
+</span></span><span style="display:flex;"><span>      domain: extractDomain(tab.url),
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><hr>
+<h2 class="heading" id="2-backend-design-go--fiber--gorm">
+  2. Backend Design (Go + Fiber + GORM)
+  <a class="anchor" href="#2-backend-design-go--fiber--gorm">#</a>
+</h2>
+<h3 class="heading" id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h3>
+<ul>
+<li><strong>Framework:</strong> Go with Fiber (Express-like web framework)</li>
+<li><strong>Database:</strong> PostgreSQL, accessed via GORM ORM</li>
+<li><strong>API:</strong> RESTful endpoints for authentication, notes CRUD, user profile, and stats</li>
+<li><strong>OpenAPI Spec:</strong> Full API documentation via <code>openapi.json</code></li>
+</ul>
+<h3 class="heading" id="authentication--security">
+  Authentication &amp; Security
+  <a class="anchor" href="#authentication--security">#</a>
+</h3>
+<ul>
+<li><strong>JWT Auth:</strong> Access tokens for API calls, refresh tokens for session management</li>
+<li><strong>Password Handling:</strong> All passwords are pre-hashed (SHA-256) by the client; backend never sees plaintext passwords</li>
+<li><strong>Token Rotation:</strong> Refresh tokens are rotated and stored securely in the database</li>
+</ul>
+<h3 class="heading" id="notes-model">
+  Notes Model
+  <a class="anchor" href="#notes-model">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> Note <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {
+</span></span><span style="display:flex;"><span>    ID         uuid.UUID      <span style="color:#666;font-style:italic">`gorm:&#34;type:uuid;default:uuid_generate_v4();primaryKey&#34;`</span>
+</span></span><span style="display:flex;"><span>    UserID     uuid.UUID      <span style="color:#666;font-style:italic">`gorm:&#34;not null&#34;`</span>
+</span></span><span style="display:flex;"><span>    Content    <span style="font-weight:bold;text-decoration:underline">string</span>         <span style="color:#666;font-style:italic">`gorm:&#34;type:text;not null&#34;`</span>
+</span></span><span style="display:flex;"><span>    SourceURL  <span style="font-weight:bold;text-decoration:underline">string</span>         <span style="color:#666;font-style:italic">`gorm:&#34;type:text&#34;`</span>
+</span></span><span style="display:flex;"><span>    SourceTitle <span style="font-weight:bold;text-decoration:underline">string</span>        <span style="color:#666;font-style:italic">`gorm:&#34;type:text&#34;`</span>
+</span></span><span style="display:flex;"><span>    Domain     <span style="font-weight:bold;text-decoration:underline">string</span>         <span style="color:#666;font-style:italic">`gorm:&#34;type:text&#34;`</span>
+</span></span><span style="display:flex;"><span>    Metadata   datatypes.JSON <span style="color:#666;font-style:italic">`gorm:&#34;type:jsonb&#34;`</span>
+</span></span><span style="display:flex;"><span>    CreatedAt  time.Time
+</span></span><span style="display:flex;"><span>    UpdatedAt  time.Time
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 class="heading" id="api-highlights">
+  API Highlights
+  <a class="anchor" href="#api-highlights">#</a>
+</h3>
+<ul>
+<li><strong>/auth/register, /auth/login, /auth/refresh, /auth/logout:</strong> Secure user authentication</li>
+<li><strong>/notes:</strong> CRUD for notes, with pagination, sorting, and filtering by domain/source</li>
+<li><strong>/notes/stats:</strong> Returns note counts per domain for dashboard analytics</li>
+<li><strong>/user/profile, /user/password:</strong> User info and password update endpoints</li>
+</ul>
+<h3 class="heading" id="example-notes-pagination-handler">
+  Example: Notes Pagination Handler
+  <a class="anchor" href="#example-notes-pagination-handler">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">GetNotes</span>(c *fiber.Ctx) <span style="font-weight:bold;text-decoration:underline">error</span> {
+</span></span><span style="display:flex;"><span>    userID := c.<span style="color:#666;font-weight:bold;font-style:italic">Locals</span>(<span style="color:#666;font-style:italic">&#34;user_id&#34;</span>).(uuid.UUID)
+</span></span><span style="display:flex;"><span>    page, _ := strconv.<span style="color:#666;font-weight:bold;font-style:italic">Atoi</span>(c.<span style="color:#666;font-weight:bold;font-style:italic">Query</span>(<span style="color:#666;font-style:italic">&#34;page&#34;</span>, <span style="color:#666;font-style:italic">&#34;1&#34;</span>))
+</span></span><span style="display:flex;"><span>    pageSize, _ := strconv.<span style="color:#666;font-weight:bold;font-style:italic">Atoi</span>(c.<span style="color:#666;font-weight:bold;font-style:italic">Query</span>(<span style="color:#666;font-style:italic">&#34;page_size&#34;</span>, <span style="color:#666;font-style:italic">&#34;10&#34;</span>))
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> notes []models.Note
+</span></span><span style="display:flex;"><span>    db := database.DB.<span style="color:#666;font-weight:bold;font-style:italic">Where</span>(<span style="color:#666;font-style:italic">&#34;user_id = ?&#34;</span>, userID)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span> domain := c.<span style="color:#666;font-weight:bold;font-style:italic">Query</span>(<span style="color:#666;font-style:italic">&#34;domain&#34;</span>); domain != <span style="color:#666;font-style:italic">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>        db = db.<span style="color:#666;font-weight:bold;font-style:italic">Where</span>(<span style="color:#666;font-style:italic">&#34;domain = ?&#34;</span>, domain)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    db = db.<span style="color:#666;font-weight:bold;font-style:italic">Order</span>(<span style="color:#666;font-style:italic">&#34;created_at DESC&#34;</span>).<span style="color:#666;font-weight:bold;font-style:italic">Offset</span>((page-1)*pageSize).<span style="color:#666;font-weight:bold;font-style:italic">Limit</span>(pageSize)
+</span></span><span style="display:flex;"><span>    db.<span style="color:#666;font-weight:bold;font-style:italic">Find</span>(&amp;notes)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">return</span> c.<span style="color:#666;font-weight:bold;font-style:italic">JSON</span>(notes)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 class="heading" id="security--best-practices">
+  Security &amp; Best Practices
+  <a class="anchor" href="#security--best-practices">#</a>
+</h3>
+<ul>
+<li><strong>CORS:</strong> Configured for frontend and extension origins</li>
+<li><strong>Error Handling:</strong> Consistent error responses with codes/messages</li>
+<li><strong>OpenAPI:</strong> All endpoints documented for easy integration</li>
+</ul>
+<hr>
+<h2 class="heading" id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h2>
+<p>This architecture enables a seamless, cross-platform study assistant experience. The Chrome extension and Go backend are decoupled, secure, and scalable. The same backend can power future mobile or desktop apps, and the extension can be ported to other browsers with minimal changes.</p>
+<hr>
+<p>You can watch the demo of the plugin at: <a href="www.loom.com/share/8c291ec1989b44f793af83d4d2678d10?sid=e5dbd943-e8e6-46ea-b0a1-588134f8c3db">TTS Study Assistant Chrome Extension</a></p>
+<h2 class="heading" id="future-enhancements">
+  Future Enhancements
+  <a class="anchor" href="#future-enhancements">#</a>
+</h2>
+<ul>
+<li><strong>Mobile App:</strong> Build a React Native app to access notes on the go.</li>
+<li><strong>Desktop App:</strong> Create a cross-platform desktop app using Electron or Tauri.</li>
+<li><strong>AI Features:</strong> Integrate AI for summarization, tagging, and smart search.</li>
+<li><strong>Collaboration:</strong> Allow users to share notes with others or create public note collections.</li>
+<li><strong>Analytics Dashboard:</strong> Provide insights on note usage, most active domains, etc.</li>
+</ul>
+
+    </div>
+  </article>
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </main>
+  </div>
+
+  
+  
+
+
+
+
+
+    
+
+
+
+
+  <footer>
+    
+
+    
+    
+
+
+
+
+
+    
+
+
+
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+  </footer>
+
+  
+</body>
+
+<script src="/js/theme-switch.js"></script>
+<script defer src="/js/copy-code.js"></script>
+</html>
