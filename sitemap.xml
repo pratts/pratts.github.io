@@ -3,10 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2025-07-09T17:31:45+05:30</lastmod>
-  </url><url>
-    <loc>/projects/tts-study-assistant/</loc>
-    <lastmod>2025-07-09T17:31:45+05:30</lastmod>
+    <lastmod>2025-06-23T11:15:01+05:30</lastmod>
   </url><url>
     <loc>/projects/</loc>
     <lastmod>2025-06-23T11:15:01+05:30</lastmod>
@@ -46,5 +43,29 @@
   </url><url>
     <loc>/about/</loc>
     <lastmod>2025-06-09T17:12:52+05:30</lastmod>
+  </url><url>
+    <loc>/tags/ai/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/chrome-extension/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/go/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/react/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/study-tools/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tts/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/projects/tts-study-assistant/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/typescript/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
   </url>
 </urlset>

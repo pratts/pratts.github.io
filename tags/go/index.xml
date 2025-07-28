@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Prateek Sharma</title>
+    <link>/tags/go/</link>
+    <description>Recent content in Go on Prateek Sharma</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TTS Study Assistant: A Chrome Extension</title>
+      <link>/projects/tts-study-assistant/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/projects/tts-study-assistant/</guid>
+      <description>&lt;h2 class=&#34;heading&#34; id=&#34;introduction&#34;&gt;&#xA;  Introduction&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#introduction&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;I recently built a comprehensive TTS (Text-to-Speech) Study Assistantthat enables a user to save notes, play audio for the saved notes and summarize them using AI. It combines a Chrome extension with a Go backend and React based admin panel.&lt;/p&gt;&#xA;&lt;h2 class=&#34;heading&#34; id=&#34;project-overview&#34;&gt;&#xA;  Project Overview&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#project-overview&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The TTS Study Assistant is a study tool that helps users:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Capture and organize notes&lt;/strong&gt; from any webpage&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Listen to text selections&lt;/strong&gt; using Chrome&amp;rsquo;s TTS API&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Summarize notes&lt;/strong&gt; using AI for quick review&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Manage notes&lt;/strong&gt; using a React-based admin panel&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 class=&#34;heading&#34; id=&#34;architecture&#34;&gt;&#xA;  Architecture&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#architecture&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 class=&#34;heading&#34; id=&#34;tech-stack&#34;&gt;&#xA;  Tech Stack&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#tech-stack&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Backend (Golang)&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

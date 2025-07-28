@@ -57,5 +57,54 @@
       <guid>/tags/python/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Ai</title>
+      <link>/tags/ai/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chrome-Extension</title>
+      <link>/tags/chrome-extension/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/chrome-extension/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Go</title>
+      <link>/tags/go/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/go/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>React</title>
+      <link>/tags/react/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/react/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Study-Tools</title>
+      <link>/tags/study-tools/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/study-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tts</title>
+      <link>/tags/tts/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/tts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Typescript</title>
+      <link>/tags/typescript/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/typescript/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

@@ -26,13 +26,13 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<meta name="description" content="A deep dive into the technical design and implementation of a TTS Study Assistant Chrome extension and its Go backend."/>
+<meta name="description" content=""/>
 
 
 
 <title>
     
-    Study Assistant: Chrome Extension | Prateek Sharma
+    TTS Study Assistant: A Chrome Extension | Prateek Sharma
     
 </title>
 
@@ -40,13 +40,21 @@
 
 <meta property="og:url" content="/projects/tts-study-assistant/">
   <meta property="og:site_name" content="Prateek Sharma">
-  <meta property="og:title" content="Study Assistant: Chrome Extension">
-  <meta property="og:description" content="A deep dive into the technical design and implementation of a TTS Study Assistant Chrome extension and its Go backend.">
+  <meta property="og:title" content="TTS Study Assistant: A Chrome Extension">
+  <meta property="og:description" content="Introduction # I recently built a comprehensive TTS (Text-to-Speech) Study Assistantthat enables a user to save notes, play audio for the saved notes and summarize them using AI. It combines a Chrome extension with a Go backend and React based admin panel.
+Project Overview # The TTS Study Assistant is a study tool that helps users:
+Capture and organize notes from any webpage Listen to text selections using Chrome’s TTS API Summarize notes using AI for quick review Manage notes using a React-based admin panel Architecture # Tech Stack # Backend (Golang)">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2025-07-09T17:31:45+05:30">
-    <meta property="article:modified_time" content="2025-07-09T17:31:45+05:30">
+    <meta property="article:published_time" content="2024-01-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-15T00:00:00+00:00">
+    <meta property="article:tag" content="Chrome-Extension">
+    <meta property="article:tag" content="Go">
+    <meta property="article:tag" content="React">
+    <meta property="article:tag" content="Typescript">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Tts">
 
 
 
@@ -171,21 +179,21 @@
 
 
 <div class="breadcrumbs"><a href="/">~</a><span class="breadcrumbs-separator">/</span><a href="/projects/">Projects</a><span class="breadcrumbs-separator">/</span>
-        <a href="/projects/tts-study-assistant/">Study Assistant: Chrome Extension</a></div>
+        <a href="/projects/tts-study-assistant/">TTS Study Assistant: A Chrome Extension</a></div>
 
 
 <div >
   <article>
     <header class="single-intro-container">
         
-        <h1 class="single-title">Study Assistant: Chrome Extension</h1>
+        <h1 class="single-title">TTS Study Assistant: A Chrome Extension</h1>
         
         <div class="single-subsummary">
           
           <div>
             
             <p class="single-date">
-              <time datetime="2025-07-09T17:31:45&#43;05:30">July 9, 2025</time>
+              <time datetime="2024-01-15T00:00:00&#43;00:00">January 15, 2024</time>
             </p>
           </div>
         </div>
@@ -197,157 +205,448 @@
   Introduction
   <a class="anchor" href="#introduction">#</a>
 </h2>
-<p>In this post, I’ll walk through the technical details of building a Study Assistant—a productivity tool that lets users save, organize, and listen to notes from any website. The solution consists of a Chrome extension (frontend) and a Go/Fiber backend, with secure authentication, domain-based note management, and text-to-speech (TTS) features.</p>
-<hr>
-<h2 class="heading" id="1-chrome-extension-technical-details">
-  1. Chrome Extension: Technical Details
-  <a class="anchor" href="#1-chrome-extension-technical-details">#</a>
+<p>I recently built a comprehensive TTS (Text-to-Speech) Study Assistantthat enables a user to save notes, play audio for the saved notes and summarize them using AI. It combines a Chrome extension with a Go backend and React based admin panel.</p>
+<h2 class="heading" id="project-overview">
+  Project Overview
+  <a class="anchor" href="#project-overview">#</a>
 </h2>
-<h3 class="heading" id="architecture">
+<p>The TTS Study Assistant is a study tool that helps users:</p>
+<ul>
+<li><strong>Capture and organize notes</strong> from any webpage</li>
+<li><strong>Listen to text selections</strong> using Chrome&rsquo;s TTS API</li>
+<li><strong>Summarize notes</strong> using AI for quick review</li>
+<li><strong>Manage notes</strong> using a React-based admin panel</li>
+</ul>
+<h2 class="heading" id="architecture">
   Architecture
   <a class="anchor" href="#architecture">#</a>
+</h2>
+<h3 class="heading" id="tech-stack">
+  Tech Stack
+  <a class="anchor" href="#tech-stack">#</a>
 </h3>
+<p><strong>Backend (Golang)</strong></p>
 <ul>
-<li><strong>Popup UI:</strong> Built with vanilla JS, HTML, and CSS for fast load and compatibility.</li>
-<li><strong>Content Scripts:</strong> Injected into web pages to capture selected text and interact with the context menu.</li>
-<li><strong>Background Script:</strong> Handles authentication, API calls, and communication between popup, content scripts, and backend.</li>
-<li><strong>Context Menus:</strong> Adds a right-click menu for saving selected text as a note.</li>
-<li><strong>TTS Integration:</strong> Uses the Web Speech API (<code>window.speechSynthesis</code>) for in-browser audio playback.</li>
+<li><strong>Framework</strong>: Fiber (high-performance HTTP framework)</li>
+<li><strong>Database</strong>: PostgreSQL with GORM ORM</li>
+<li><strong>Authentication</strong>: JWT with source-based token expiry</li>
+<li><strong>AI Integration</strong>: OpenAI GPT-3.5-turbo for text summarization</li>
+<li><strong>Deployment</strong>: Docker containerization on Railway</li>
 </ul>
-<h3 class="heading" id="key-features">
+<p><strong>Frontend (React + TypeScript)</strong></p>
+<ul>
+<li><strong>Framework</strong>: React 18 with TypeScript</li>
+<li><strong>Build Tool</strong>: Vite for fast development and building</li>
+<li><strong>State Management</strong>: React Context + React Query</li>
+<li><strong>Deployment</strong>: Vercel for static hosting</li>
+</ul>
+<p><strong>Chrome Extension</strong></p>
+<ul>
+<li><strong>Manifest</strong>: Manifest V3 for modern extension APIs</li>
+<li><strong>Storage</strong>: Chrome Storage API for local state</li>
+<li><strong>TTS</strong>: Chrome TTS API for text-to-speech</li>
+<li><strong>Content Scripts</strong>: For webpage interaction</li>
+</ul>
+<h2 class="heading" id="key-features">
   Key Features
   <a class="anchor" href="#key-features">#</a>
+</h2>
+<h3 class="heading" id="1-text-to-speech-functionality">
+  1. Text-to-Speech Functionality
+  <a class="anchor" href="#1-text-to-speech-functionality">#</a>
 </h3>
+<p>The core TTS feature allows users to:</p>
 <ul>
-<li><strong>Save Notes:</strong> Select text on any page, right-click, and save it as a note (with source URL and domain auto-detected).</li>
-<li><strong>Listen to Notes:</strong> Play, pause, and replay notes using TTS directly from the popup.</li>
-<li><strong>Domain Awareness:</strong> Notes are grouped and filtered by domain, including special handling for local files and PDFs.</li>
-<li><strong>Authentication:</strong> Secure login with JWT/refresh tokens, passwords are pre-hashed (SHA-256) before sending to the backend.</li>
-<li><strong>Sync:</strong> Notes are synced with the backend, so users can access them from the web dashboard as well.</li>
+<li><strong>Select any text</strong> on a webpage and have it read aloud</li>
+<li><strong>Control playback</strong> with play, pause, resume, and stop controls</li>
+<li><strong>Queue management</strong> for multiple text selections</li>
 </ul>
-<h3 class="heading" id="permissions--security">
-  Permissions &amp; Security
-  <a class="anchor" href="#permissions--security">#</a>
-</h3>
-<ul>
-<li><strong>Permissions:</strong> <code>activeTab</code>, <code>contextMenus</code>, <code>storage</code>, <code>tts</code>, and host permissions for all URLs.</li>
-<li><strong>Privacy:</strong> No user data is sold or shared; only email, hashed password, and selected note content are sent to the backend.</li>
-<li><strong>Edge Cases:</strong> Handles Chrome PDF viewer and local files by mapping their domains to a generic label (&ldquo;Downloaded/Local file&rdquo;).</li>
-</ul>
-<h3 class="heading" id="example-context-menu-handler">
-  Example: Context Menu Handler
-  <a class="anchor" href="#example-context-menu-handler">#</a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>chrome.contextMenus.create({
-</span></span><span style="display:flex;"><span>  id: <span style="color:#666;font-style:italic">&#34;save-note&#34;</span>,
-</span></span><span style="display:flex;"><span>  title: <span style="color:#666;font-style:italic">&#34;Save Note&#34;</span>,
-</span></span><span style="display:flex;"><span>  contexts: [<span style="color:#666;font-style:italic">&#34;selection&#34;</span>],
+<p><strong>Technical Implementation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#888;font-style:italic">// Content script handles text selection and TTS requests
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>chrome.runtime.sendMessage({
+</span></span><span style="display:flex;"><span>  action: <span style="color:#666;font-style:italic">&#39;speak&#39;</span>,
+</span></span><span style="display:flex;"><span>  text: selectedText,
+</span></span><span style="display:flex;"><span>  tabId: tab.id
 </span></span><span style="display:flex;"><span>});
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>chrome.contextMenus.onClicked.addListener(<span style="font-weight:bold;text-decoration:underline">async</span> (info, tab) =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">if</span> (info.menuItemId === <span style="color:#666;font-style:italic">&#34;save-note&#34;</span> &amp;&amp; info.selectionText) {
-</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// Send selected text to backend
-</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>    <span style="font-weight:bold;text-decoration:underline">await</span> apiClient.saveNote({
-</span></span><span style="display:flex;"><span>      content: info.selectionText,
-</span></span><span style="display:flex;"><span>      source_url: tab.url,
-</span></span><span style="display:flex;"><span>      domain: extractDomain(tab.url),
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// Background script manages Chrome TTS API
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>chrome.tts.speak(text, {
+</span></span><span style="display:flex;"><span>  rate: 1.0,
+</span></span><span style="display:flex;"><span>  pitch: 1.0,
+</span></span><span style="display:flex;"><span>  onEvent: <span style="font-weight:bold;font-style:italic;text-decoration:underline">function</span>(event) {
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// Handle TTS events
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>  }
 </span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><hr>
-<h2 class="heading" id="2-backend-design-go--fiber--gorm">
-  2. Backend Design (Go + Fiber + GORM)
-  <a class="anchor" href="#2-backend-design-go--fiber--gorm">#</a>
-</h2>
-<h3 class="heading" id="overview">
-  Overview
-  <a class="anchor" href="#overview">#</a>
+</span></span></code></pre></div><h3 class="heading" id="2-note-management-system">
+  2. Note Management System
+  <a class="anchor" href="#2-note-management-system">#</a>
 </h3>
+<p>Users can save and organize study notes with:</p>
 <ul>
-<li><strong>Framework:</strong> Go with Fiber (Express-like web framework)</li>
-<li><strong>Database:</strong> PostgreSQL, accessed via GORM ORM</li>
-<li><strong>API:</strong> RESTful endpoints for authentication, notes CRUD, user profile, and stats</li>
-<li><strong>OpenAPI Spec:</strong> Full API documentation via <code>openapi.json</code></li>
+<li><strong>Automatic domain detection</strong> from source URLs</li>
+<li><strong>Rich metadata</strong> storage for additional context</li>
+<li><strong>Pagination and filtering</strong> for large note collections</li>
 </ul>
-<h3 class="heading" id="authentication--security">
-  Authentication &amp; Security
-  <a class="anchor" href="#authentication--security">#</a>
+<p><strong>Database Schema:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">CREATE</span> <span style="font-weight:bold;text-decoration:underline">TABLE</span> notes (
+</span></span><span style="display:flex;"><span>  id UUID <span style="font-weight:bold;text-decoration:underline">PRIMARY</span> <span style="font-weight:bold;text-decoration:underline">KEY</span> <span style="font-weight:bold;text-decoration:underline">DEFAULT</span> uuid_generate_v4(),
+</span></span><span style="display:flex;"><span>  user_id UUID <span style="font-weight:bold;text-decoration:underline">NOT</span> <span style="font-weight:bold;text-decoration:underline">NULL</span>,
+</span></span><span style="display:flex;"><span>  content <span style="font-weight:bold;font-style:italic">TEXT</span> <span style="font-weight:bold;text-decoration:underline">NOT</span> <span style="font-weight:bold;text-decoration:underline">NULL</span>,
+</span></span><span style="display:flex;"><span>  source_url <span style="font-weight:bold;font-style:italic">TEXT</span>,
+</span></span><span style="display:flex;"><span>  source_title <span style="font-weight:bold;font-style:italic">TEXT</span>,
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">domain</span> <span style="font-weight:bold;font-style:italic">TEXT</span>,
+</span></span><span style="display:flex;"><span>  summary <span style="font-weight:bold;font-style:italic">TEXT</span>,
+</span></span><span style="display:flex;"><span>  metadata JSONB,
+</span></span><span style="display:flex;"><span>  created_at <span style="font-weight:bold;text-decoration:underline">TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>  updated_at <span style="font-weight:bold;text-decoration:underline">TIMESTAMP</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h3 class="heading" id="3-ai-powered-summarization">
+  3. AI-Powered Summarization
+  <a class="anchor" href="#3-ai-powered-summarization">#</a>
 </h3>
-<ul>
-<li><strong>JWT Auth:</strong> Access tokens for API calls, refresh tokens for session management</li>
-<li><strong>Password Handling:</strong> All passwords are pre-hashed (SHA-256) by the client; backend never sees plaintext passwords</li>
-<li><strong>Token Rotation:</strong> Refresh tokens are rotated and stored securely in the database</li>
-</ul>
-<h3 class="heading" id="notes-model">
-  Notes Model
-  <a class="anchor" href="#notes-model">#</a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> Note <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {
-</span></span><span style="display:flex;"><span>    ID         uuid.UUID      <span style="color:#666;font-style:italic">`gorm:&#34;type:uuid;default:uuid_generate_v4();primaryKey&#34;`</span>
-</span></span><span style="display:flex;"><span>    UserID     uuid.UUID      <span style="color:#666;font-style:italic">`gorm:&#34;not null&#34;`</span>
-</span></span><span style="display:flex;"><span>    Content    <span style="font-weight:bold;text-decoration:underline">string</span>         <span style="color:#666;font-style:italic">`gorm:&#34;type:text;not null&#34;`</span>
-</span></span><span style="display:flex;"><span>    SourceURL  <span style="font-weight:bold;text-decoration:underline">string</span>         <span style="color:#666;font-style:italic">`gorm:&#34;type:text&#34;`</span>
-</span></span><span style="display:flex;"><span>    SourceTitle <span style="font-weight:bold;text-decoration:underline">string</span>        <span style="color:#666;font-style:italic">`gorm:&#34;type:text&#34;`</span>
-</span></span><span style="display:flex;"><span>    Domain     <span style="font-weight:bold;text-decoration:underline">string</span>         <span style="color:#666;font-style:italic">`gorm:&#34;type:text&#34;`</span>
-</span></span><span style="display:flex;"><span>    Metadata   datatypes.JSON <span style="color:#666;font-style:italic">`gorm:&#34;type:jsonb&#34;`</span>
-</span></span><span style="display:flex;"><span>    CreatedAt  time.Time
-</span></span><span style="display:flex;"><span>    UpdatedAt  time.Time
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 class="heading" id="api-highlights">
-  API Highlights
-  <a class="anchor" href="#api-highlights">#</a>
-</h3>
-<ul>
-<li><strong>/auth/register, /auth/login, /auth/refresh, /auth/logout:</strong> Secure user authentication</li>
-<li><strong>/notes:</strong> CRUD for notes, with pagination, sorting, and filtering by domain/source</li>
-<li><strong>/notes/stats:</strong> Returns note counts per domain for dashboard analytics</li>
-<li><strong>/user/profile, /user/password:</strong> User info and password update endpoints</li>
-</ul>
-<h3 class="heading" id="example-notes-pagination-handler">
-  Example: Notes Pagination Handler
-  <a class="anchor" href="#example-notes-pagination-handler">#</a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">GetNotes</span>(c *fiber.Ctx) <span style="font-weight:bold;text-decoration:underline">error</span> {
-</span></span><span style="display:flex;"><span>    userID := c.<span style="color:#666;font-weight:bold;font-style:italic">Locals</span>(<span style="color:#666;font-style:italic">&#34;user_id&#34;</span>).(uuid.UUID)
-</span></span><span style="display:flex;"><span>    page, _ := strconv.<span style="color:#666;font-weight:bold;font-style:italic">Atoi</span>(c.<span style="color:#666;font-weight:bold;font-style:italic">Query</span>(<span style="color:#666;font-style:italic">&#34;page&#34;</span>, <span style="color:#666;font-style:italic">&#34;1&#34;</span>))
-</span></span><span style="display:flex;"><span>    pageSize, _ := strconv.<span style="color:#666;font-weight:bold;font-style:italic">Atoi</span>(c.<span style="color:#666;font-weight:bold;font-style:italic">Query</span>(<span style="color:#666;font-style:italic">&#34;page_size&#34;</span>, <span style="color:#666;font-style:italic">&#34;10&#34;</span>))
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> notes []models.Note
-</span></span><span style="display:flex;"><span>    db := database.DB.<span style="color:#666;font-weight:bold;font-style:italic">Where</span>(<span style="color:#666;font-style:italic">&#34;user_id = ?&#34;</span>, userID)
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span> domain := c.<span style="color:#666;font-weight:bold;font-style:italic">Query</span>(<span style="color:#666;font-style:italic">&#34;domain&#34;</span>); domain != <span style="color:#666;font-style:italic">&#34;&#34;</span> {
-</span></span><span style="display:flex;"><span>        db = db.<span style="color:#666;font-weight:bold;font-style:italic">Where</span>(<span style="color:#666;font-style:italic">&#34;domain = ?&#34;</span>, domain)
+<p>The system integrates OpenAI&rsquo;s GPT-3.5-turbo for intelligent text summarization:</p>
+<p><strong>Go Implementation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> (s *SummarizerService) <span style="color:#666;font-weight:bold;font-style:italic">Summarize</span>(text <span style="font-weight:bold;text-decoration:underline">string</span>) (<span style="font-weight:bold;text-decoration:underline">string</span>, <span style="font-weight:bold;text-decoration:underline">error</span>) {
+</span></span><span style="display:flex;"><span>    payload := <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;font-style:italic;text-decoration:underline">interface</span>{}{
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#34;model&#34;</span>: <span style="color:#666;font-style:italic">&#34;gpt-3.5-turbo&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#34;messages&#34;</span>: []<span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">string</span>{
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#666;font-style:italic">&#34;role&#34;</span>:    <span style="color:#666;font-style:italic">&#34;system&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#666;font-style:italic">&#34;content&#34;</span>: <span style="color:#666;font-style:italic">&#34;You are a helpful assistant that creates concise summaries. Summarize the following text in 2-3 sentences, capturing the key points.&#34;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#666;font-style:italic">&#34;role&#34;</span>:    <span style="color:#666;font-style:italic">&#34;user&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#666;font-style:italic">&#34;content&#34;</span>: text,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#34;temperature&#34;</span>: 0.7,
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#34;max_tokens&#34;</span>:  150,
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    db = db.<span style="color:#666;font-weight:bold;font-style:italic">Order</span>(<span style="color:#666;font-style:italic">&#34;created_at DESC&#34;</span>).<span style="color:#666;font-weight:bold;font-style:italic">Offset</span>((page-1)*pageSize).<span style="color:#666;font-weight:bold;font-style:italic">Limit</span>(pageSize)
-</span></span><span style="display:flex;"><span>    db.<span style="color:#666;font-weight:bold;font-style:italic">Find</span>(&amp;notes)
-</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">return</span> c.<span style="color:#666;font-weight:bold;font-style:italic">JSON</span>(notes)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// Make API call to OpenAI</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// Parse response and return summary</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 class="heading" id="security--best-practices">
-  Security &amp; Best Practices
-  <a class="anchor" href="#security--best-practices">#</a>
+</span></span></code></pre></div><h3 class="heading" id="4-authentication--security">
+  4. Authentication &amp; Security
+  <a class="anchor" href="#4-authentication--security">#</a>
+</h3>
+<p><strong>Multi-Source Authentication:</strong></p>
+<ul>
+<li><strong>Web sessions</strong>: 15-minute access tokens, 30-day refresh tokens</li>
+<li><strong>Extension sessions</strong>: 1-hour access tokens, 90-day refresh tokens</li>
+<li><strong>Token rotation</strong> on refresh for enhanced security</li>
+<li><strong>Source tracking</strong> for audit and security purposes</li>
+</ul>
+<p><strong>JWT Implementation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> (s *AuthService) <span style="color:#666;font-weight:bold;font-style:italic">generateAccessTokenWithSource</span>(userID, email, source <span style="font-weight:bold;text-decoration:underline">string</span>) (<span style="font-weight:bold;text-decoration:underline">string</span>, <span style="font-weight:bold;text-decoration:underline">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> exp time.Duration
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">switch</span> source {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">case</span> <span style="color:#666;font-style:italic">&#34;extension&#34;</span>:
+</span></span><span style="display:flex;"><span>        exp = time.Hour * 1
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">default</span>:
+</span></span><span style="display:flex;"><span>        exp = time.Minute * 15
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    claims := jwt.MapClaims{
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#34;user_id&#34;</span>: userID,
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#34;email&#34;</span>:   email,
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#34;exp&#34;</span>:     time.<span style="color:#666;font-weight:bold;font-style:italic">Now</span>().<span style="color:#666;font-weight:bold;font-style:italic">Add</span>(exp).<span style="color:#666;font-weight:bold;font-style:italic">Unix</span>(),
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#34;iat&#34;</span>:     time.<span style="color:#666;font-weight:bold;font-style:italic">Now</span>().<span style="color:#666;font-weight:bold;font-style:italic">Unix</span>(),
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    token := jwt.<span style="color:#666;font-weight:bold;font-style:italic">NewWithClaims</span>(jwt.SigningMethodHS256, claims)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">return</span> token.<span style="color:#666;font-weight:bold;font-style:italic">SignedString</span>([]<span style="font-weight:bold;font-style:italic">byte</span>(s.cfg.JWTSecret))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 class="heading" id="5-chrome-extension-architecture">
+  5. Chrome Extension Architecture
+  <a class="anchor" href="#5-chrome-extension-architecture">#</a>
+</h3>
+<p><strong>Manifest V3 Structure:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  &#34;manifest_version&#34;: 3,
+</span></span><span style="display:flex;"><span>  &#34;name&#34;: <span style="color:#666;font-style:italic">&#34;TTS Study Assistant&#34;</span>,
+</span></span><span style="display:flex;"><span>  &#34;version&#34;: <span style="color:#666;font-style:italic">&#34;1.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>  &#34;permissions&#34;: [
+</span></span><span style="display:flex;"><span>    <span style="color:#666;font-style:italic">&#34;storage&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#666;font-style:italic">&#34;tts&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#666;font-style:italic">&#34;activeTab&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#666;font-style:italic">&#34;contextMenus&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  &#34;background&#34;: {
+</span></span><span style="display:flex;"><span>    &#34;service_worker&#34;: <span style="color:#666;font-style:italic">&#34;background.js&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  &#34;content_scripts&#34;: [{
+</span></span><span style="display:flex;"><span>    &#34;matches&#34;: [<span style="color:#666;font-style:italic">&#34;&lt;all_urls&gt;&#34;</span>],
+</span></span><span style="display:flex;"><span>    &#34;js&#34;: [<span style="color:#666;font-style:italic">&#34;content.js&#34;</span>],
+</span></span><span style="display:flex;"><span>    &#34;css&#34;: [<span style="color:#666;font-style:italic">&#34;content.css&#34;</span>]
+</span></span><span style="display:flex;"><span>  }]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Key Components:</strong></p>
+<ul>
+<li><strong>Background Service Worker</strong>: Manages TTS state and API communication</li>
+<li><strong>Content Scripts</strong>: Handle text selection and user interaction</li>
+<li><strong>Popup Interface</strong>: Provides controls and note management</li>
+<li><strong>Storage API</strong>: Persists user preferences and authentication state</li>
+</ul>
+<h2 class="heading" id="development-challenges--solutions">
+  Development Challenges &amp; Solutions
+  <a class="anchor" href="#development-challenges--solutions">#</a>
+</h2>
+<h3 class="heading" id="1-chrome-extension-tts-limitations">
+  1. Chrome Extension TTS Limitations
+  <a class="anchor" href="#1-chrome-extension-tts-limitations">#</a>
+</h3>
+<p><strong>Challenge</strong>: Chrome&rsquo;s TTS API doesn&rsquo;t provide detailed playback state information.</p>
+<p><strong>Solution</strong>: Implemented a custom state management system:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#888;font-style:italic">// Track TTS state manually
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span><span style="font-weight:bold;font-style:italic;text-decoration:underline">let</span> currentState = {
+</span></span><span style="display:flex;"><span>  isPlaying: <span style="font-weight:bold;text-decoration:underline">false</span>,
+</span></span><span style="display:flex;"><span>  isPaused: <span style="font-weight:bold;text-decoration:underline">false</span>,
+</span></span><span style="display:flex;"><span>  currentText: <span style="font-weight:bold;text-decoration:underline">null</span>,
+</span></span><span style="display:flex;"><span>  queue: []
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// Update UI based on state
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span><span style="font-weight:bold;font-style:italic;text-decoration:underline">function</span> updateButtonStates() {
+</span></span><span style="display:flex;"><span>  playBtn.disabled = !currentState.queue.length &amp;&amp; !currentState.currentText;
+</span></span><span style="display:flex;"><span>  pauseBtn.style.display = currentState.isPlaying ? <span style="color:#666;font-style:italic">&#39;block&#39;</span> : <span style="color:#666;font-style:italic">&#39;none&#39;</span>;
+</span></span><span style="display:flex;"><span>  resumeBtn.style.display = currentState.isPaused ? <span style="color:#666;font-style:italic">&#39;block&#39;</span> : <span style="color:#666;font-style:italic">&#39;none&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 class="heading" id="2-cross-origin-api-communication">
+  2. Cross-Origin API Communication
+  <a class="anchor" href="#2-cross-origin-api-communication">#</a>
+</h3>
+<p><strong>Challenge</strong>: Chrome extensions need to communicate with external APIs while handling CORS.</p>
+<p><strong>Solution</strong>: Used Chrome&rsquo;s storage API for token management and implemented proper error handling:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">class</span> ApiClient {
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">async</span> _fetchWithAuth(url, options = {}) {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">const</span> token = <span style="font-weight:bold;text-decoration:underline">await</span> <span style="font-weight:bold;text-decoration:underline">this</span>.getAccessToken();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">const</span> response = <span style="font-weight:bold;text-decoration:underline">await</span> fetch(url, {
+</span></span><span style="display:flex;"><span>      ...options,
+</span></span><span style="display:flex;"><span>      headers: {
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#39;Authorization&#39;</span>: <span style="color:#666;font-style:italic">`Bearer </span><span style="color:#666;font-style:italic">${</span>token<span style="color:#666;font-style:italic">}</span><span style="color:#666;font-style:italic">`</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#666;font-style:italic">&#39;Content-Type&#39;</span>: <span style="color:#666;font-style:italic">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>        ...options.headers
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">if</span> (response.status === 401) {
+</span></span><span style="display:flex;"><span>      <span style="color:#888;font-style:italic">// Handle token refresh
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>      <span style="font-weight:bold;text-decoration:underline">await</span> <span style="font-weight:bold;text-decoration:underline">this</span>.refreshToken();
+</span></span><span style="display:flex;"><span>      <span style="font-weight:bold;text-decoration:underline">return</span> <span style="font-weight:bold;text-decoration:underline">this</span>._fetchWithAuth(url, options);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">return</span> response;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 class="heading" id="3-real-time-ui-synchronization">
+  3. Real-time UI Synchronization
+  <a class="anchor" href="#3-real-time-ui-synchronization">#</a>
+</h3>
+<p><strong>Challenge</strong>: Keeping popup UI in sync with background TTS state.</p>
+<p><strong>Solution</strong>: Implemented message passing between background and popup:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#888;font-style:italic">// Background sends state updates
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>chrome.runtime.sendMessage({
+</span></span><span style="display:flex;"><span>  action: <span style="color:#666;font-style:italic">&#39;stateUpdate&#39;</span>,
+</span></span><span style="display:flex;"><span>  state: ttsState
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// Popup listens for updates
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>chrome.runtime.onMessage.addListener((message) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="font-weight:bold;text-decoration:underline">if</span> (message.action === <span style="color:#666;font-style:italic">&#39;stateUpdate&#39;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic">// UI Update logic
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 class="heading" id="performance-optimizations">
+  Performance Optimizations
+  <a class="anchor" href="#performance-optimizations">#</a>
+</h2>
+<h3 class="heading" id="1-database-indexing">
+  1. Database Indexing
+  <a class="anchor" href="#1-database-indexing">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#888;font-style:italic">-- Optimize note queries by user and domain
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span><span style="font-weight:bold;text-decoration:underline">CREATE</span> <span style="font-weight:bold;text-decoration:underline">INDEX</span> idx_uid_did <span style="font-weight:bold;text-decoration:underline">ON</span> notes(user_id, <span style="font-weight:bold;text-decoration:underline">domain</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">-- Index for refresh token lookups
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span><span style="font-weight:bold;text-decoration:underline">CREATE</span> <span style="font-weight:bold;text-decoration:underline">INDEX</span> idx_refresh_token <span style="font-weight:bold;text-decoration:underline">ON</span> refresh_tokens(token);
+</span></span></code></pre></div><h3 class="heading" id="2-frontend-code-splitting">
+  2. Frontend Code Splitting
+  <a class="anchor" href="#2-frontend-code-splitting">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#888;font-style:italic">// Lazy load components for better performance
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span><span style="font-weight:bold;text-decoration:underline">const</span> Dashboard = lazy(() =&gt; <span style="font-weight:bold;text-decoration:underline">import</span>(<span style="color:#666;font-style:italic">&#39;./pages/Dashboard&#39;</span>));
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">const</span> Notes = lazy(() =&gt; <span style="font-weight:bold;text-decoration:underline">import</span>(<span style="color:#666;font-style:italic">&#39;./pages/Notes&#39;</span>));
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">const</span> Profile = lazy(() =&gt; <span style="font-weight:bold;text-decoration:underline">import</span>(<span style="color:#666;font-style:italic">&#39;./pages/Profile&#39;</span>));
+</span></span></code></pre></div><h2 class="heading" id="deployment-strategy">
+  Deployment Strategy
+  <a class="anchor" href="#deployment-strategy">#</a>
+</h2>
+<h3 class="heading" id="backend-deployment">
+  Backend Deployment
+  <a class="anchor" href="#backend-deployment">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#888;font-style:italic"># Multi-stage Docker build</span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">FROM</span><span style="color:#666;font-style:italic"> golang:1.21-alpine AS builder</span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">WORKDIR</span><span style="color:#666;font-style:italic"> /app</span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">COPY</span> go.mod go.sum ./<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">RUN</span> go mod download<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">COPY</span> . .<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">RUN</span> <span style="color:#666;font-weight:bold;font-style:italic">CGO_ENABLED</span>=0 <span style="color:#666;font-weight:bold;font-style:italic">GOOS</span>=linux go build -o main ./cmd/server<span style="">
+</span></span></span><span style="display:flex;"><span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">FROM</span><span style="color:#666;font-style:italic"> alpine:latest</span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">RUN</span> apk --no-cache add ca-certificates<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">WORKDIR</span><span style="color:#666;font-style:italic"> /root/</span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">COPY</span> --from=builder /app/main .<span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">EXPOSE</span><span style="color:#666;font-style:italic"> 3000</span><span style="">
+</span></span></span><span style="display:flex;"><span><span style=""></span><span style="font-weight:bold;text-decoration:underline">CMD</span> [<span style="color:#666;font-style:italic">&#34;./main&#34;</span>]<span style="">
+</span></span></span></code></pre></div><h3 class="heading" id="frontend-deployment">
+  Frontend Deployment
+  <a class="anchor" href="#frontend-deployment">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#888;font-style:italic">// vercel.json for SPA routing
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>{
+</span></span><span style="display:flex;"><span>    &#34;routes&#34;: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            &#34;src&#34;: <span style="color:#666;font-style:italic">&#34;/[^.]+&#34;</span>,
+</span></span><span style="display:flex;"><span>            &#34;dest&#34;: <span style="color:#666;font-style:italic">&#34;/&#34;</span>,
+</span></span><span style="display:flex;"><span>            &#34;status&#34;: 200
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 class="heading" id="security-considerations">
+  Security Considerations
+  <a class="anchor" href="#security-considerations">#</a>
+</h2>
+<h3 class="heading" id="1-password-security">
+  1. Password Security
+  <a class="anchor" href="#1-password-security">#</a>
 </h3>
 <ul>
-<li><strong>CORS:</strong> Configured for frontend and extension origins</li>
-<li><strong>Error Handling:</strong> Consistent error responses with codes/messages</li>
-<li><strong>OpenAPI:</strong> All endpoints documented for easy integration</li>
+<li><strong>Client-side hashing</strong>: Passwords are hashed using SHA-256 before transmission</li>
+<li><strong>No plain text storage</strong>: Backend never sees plain text passwords</li>
+<li><strong>Secure comparison</strong>: Direct hash comparison for authentication
+Example to generate SHA-256 hash in TypeScript:</li>
 </ul>
-<hr>
-<h2 class="heading" id="conclusion">
-  Conclusion
-  <a class="anchor" href="#conclusion">#</a>
-</h2>
-<p>This architecture enables a seamless, cross-platform study assistant experience. The Chrome extension and Go backend are decoupled, secure, and scalable. The same backend can power future mobile or desktop apps, and the extension can be ported to other browsers with minimal changes.</p>
-<hr>
-<p>You can watch the demo of the plugin at: <a href="www.loom.com/share/8c291ec1989b44f793af83d4d2678d10?sid=e5dbd943-e8e6-46ea-b0a1-588134f8c3db">TTS Study Assistant Chrome Extension</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>export async function <span style="color:#666;font-weight:bold;font-style:italic">sha256</span>(str: <span style="font-weight:bold;text-decoration:underline">string</span>): Promise&lt;<span style="font-weight:bold;text-decoration:underline">string</span>&gt; {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic;text-decoration:underline">const</span> encoder = new <span style="color:#666;font-weight:bold;font-style:italic">TextEncoder</span>();
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic;text-decoration:underline">const</span> data = encoder.<span style="color:#666;font-weight:bold;font-style:italic">encode</span>(str);
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic;text-decoration:underline">const</span> hashBuffer = await window.crypto.subtle.<span style="color:#666;font-weight:bold;font-style:italic">digest</span>(<span style="">&#39;</span>SHA-256<span style="">&#39;</span>, data);
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">return</span> Array.<span style="color:#666;font-weight:bold;font-style:italic">from</span>(new <span style="color:#666;font-weight:bold;font-style:italic">Uint8Array</span>(hashBuffer))
+</span></span><span style="display:flex;"><span>        .<span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>(b =&gt; b.<span style="color:#666;font-weight:bold;font-style:italic">toString</span>(16).<span style="color:#666;font-weight:bold;font-style:italic">padStart</span>(2, <span style="color:#666;font-style:italic">&#39;0&#39;</span>))
+</span></span><span style="display:flex;"><span>        .<span style="color:#666;font-weight:bold;font-style:italic">join</span>(<span style="">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>} 
+</span></span></code></pre></div><h3 class="heading" id="2-api-security">
+  2. API Security
+  <a class="anchor" href="#2-api-security">#</a>
+</h3>
+<ul>
+<li><strong>JWT tokens</strong>: Secure, time-limited access tokens</li>
+<li><strong>CORS configuration</strong>: Properly configured for cross-origin requests</li>
+<li><strong>Input validation</strong>: Comprehensive request validation</li>
+<li><strong>SQL injection prevention</strong>: GORM ORM with parameterized queries</li>
+</ul>
+<h3 class="heading" id="3-extension-security">
+  3. Extension Security
+  <a class="anchor" href="#3-extension-security">#</a>
+</h3>
+<ul>
+<li><strong>Minimal permissions</strong>: Only requested necessary Chrome APIs</li>
+<li><strong>Content script isolation</strong>: Proper sandboxing of web page interaction</li>
+<li><strong>Secure storage</strong>: Chrome Storage API for sensitive data</li>
+</ul>
 <h2 class="heading" id="future-enhancements">
   Future Enhancements
   <a class="anchor" href="#future-enhancements">#</a>
 </h2>
+<h3 class="heading" id="planned-features">
+  Planned Features
+  <a class="anchor" href="#planned-features">#</a>
+</h3>
+<ol>
+<li><strong>Offline support</strong> with service workers</li>
+<li><strong>Voice customization</strong> for TTS (speed, pitch, voice selection)</li>
+<li><strong>Study analytics</strong> and progress tracking</li>
+<li><strong>Collaborative notes</strong> with sharing capabilities</li>
+</ol>
+<h3 class="heading" id="technical-improvements">
+  Technical Improvements
+  <a class="anchor" href="#technical-improvements">#</a>
+</h3>
+<ol>
+<li><strong>WebSocket support</strong> for real-time updates</li>
+<li><strong>Advanced caching</strong> with Redis</li>
+</ol>
+<h2 class="heading" id="lessons-learned">
+  Lessons Learned
+  <a class="anchor" href="#lessons-learned">#</a>
+</h2>
+<h3 class="heading" id="1-chrome-extension-development">
+  1. Chrome Extension Development
+  <a class="anchor" href="#1-chrome-extension-development">#</a>
+</h3>
 <ul>
-<li><strong>Mobile App:</strong> Build a React Native app to access notes on the go.</li>
-<li><strong>Desktop App:</strong> Create a cross-platform desktop app using Electron or Tauri.</li>
-<li><strong>AI Features:</strong> Integrate AI for summarization, tagging, and smart search.</li>
-<li><strong>Collaboration:</strong> Allow users to share notes with others or create public note collections.</li>
-<li><strong>Analytics Dashboard:</strong> Provide insights on note usage, most active domains, etc.</li>
+<li><strong>Manifest V3</strong> introduces new security models and limitations</li>
+<li><strong>Service workers</strong> replace background pages but have different lifecycle</li>
+<li><strong>Content script isolation</strong> requires careful message passing design</li>
 </ul>
+<h3 class="heading" id="2-go-backend-development">
+  2. Go Backend Development
+  <a class="anchor" href="#2-go-backend-development">#</a>
+</h3>
+<ul>
+<li><strong>Fiber framework</strong> provides excellent performance for HTTP APIs</li>
+<li><strong>GORM</strong> simplifies database operations but requires careful query optimization</li>
+<li><strong>JWT implementation</strong> needs proper error handling and token rotation</li>
+</ul>
+<h3 class="heading" id="3-react-frontend-development">
+  3. React Frontend Development
+  <a class="anchor" href="#3-react-frontend-development">#</a>
+</h3>
+<ul>
+<li><strong>React</strong> provides a component-based architecture for building UIs</li>
+<li><strong>TypeScript</strong> catches many errors at compile time</li>
+</ul>
+<h3 class="heading" id="4-full-stack-integration">
+  4. Full-Stack Integration
+  <a class="anchor" href="#4-full-stack-integration">#</a>
+</h3>
+<ul>
+<li><strong>API design</strong> should be consistent across all clients</li>
+<li><strong>Error handling</strong> needs to be comprehensive at all layers</li>
+<li><strong>Authentication flow</strong> must work seamlessly across web and extension</li>
+</ul>
+<h3 class="heading" id="5-end-to-end-deployment">
+  5. End to end deployment
+  <a class="anchor" href="#5-end-to-end-deployment">#</a>
+</h3>
+<ul>
+<li><strong>Docker</strong> simplifies deployment but requires careful image management</li>
+<li><strong>Railway for backend</strong> provides a great platform for Go applications with easy scaling</li>
+<li><strong>Railway for database</strong> simplifies PostgreSQL management</li>
+<li><strong>Vercel</strong> simplifies React deployments with automatic optimizations</li>
+</ul>
+<h2 class="heading" id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h2>
+<p>Building the TTS Study Assistant was an to learn full-stack development, covering everything from browser extension APIs, admin panel, Golang based backend development to AI integration. The project demonstrates modern development practices while solving real user problems.</p>
+<p>The project is open-source and available on GitHub, serving as both a functional study tool and a reference implementation for similar applications.</p>
+<h2 class="heading" id="links">
+  Links:
+  <a class="anchor" href="#links">#</a>
+</h2>
+<ul>
+<li><a href="git@github.com:pratts/tts-study-assistant.git">GitHub Repository</a></li>
+<li><a href="www.tidylnk.com/1RucaU">Chrome Web Store Listing</a></li>
+<li><a href="https://tts-study-assistant.vercel.app/">Admin Panel</a></li>
+</ul>
+<h2 class="heading" id="feedback">
+  Feedback
+  <a class="anchor" href="#feedback">#</a>
+</h2>
+<p>I welcome any feedback or contributions to the project. Feel free to open issues or pull requests on the GitHub repository. Your input can help improve the tool and add new features that benefit all users.</p>
 
     </div>
   </article>
